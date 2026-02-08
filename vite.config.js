@@ -1,10 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { configDotenv } from 'dotenv'
-configDotenv()
-import { defineConfig } from 'vite'
-
-
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,12 +7,9 @@ export default defineConfig({
     server: {
         proxy: {
             '/api': {
-                target: 'process.env.backend_url',
+                target: 'http://localhost:3000',
                 changeOrigin: true,
             }
-        }, watch: {
-            usePolling: true,
-            interval: 300
         }
     }
 })
